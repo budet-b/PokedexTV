@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB64E2DF21957F5100682C78 /* PokemonCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64E2DE21957F5100682C78 /* PokemonCellView.swift */; };
 		CB9E28212194A81800D728EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E28202194A81800D728EB /* AppDelegate.swift */; };
 		CB9E28232194A81800D728EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E28222194A81800D728EB /* ViewController.swift */; };
 		CB9E28262194A81800D728EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9E28242194A81800D728EB /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CB64E2DE21957F5100682C78 /* PokemonCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCellView.swift; sourceTree = "<group>"; };
 		CB9E281D2194A81800D728EB /* PokedexTv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexTv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9E28202194A81800D728EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB9E28222194A81800D728EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				CB9E28242194A81800D728EB /* Main.storyboard */,
 				CB9E28272194A81B00D728EB /* Assets.xcassets */,
 				CB9E28292194A81B00D728EB /* Info.plist */,
+				CB64E2DE21957F5100682C78 /* PokemonCellView.swift */,
 			);
 			path = PokedexTv;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				CB9E283A2194B3C600D728EB /* PokemonViewController.swift in Sources */,
 				CB9E28402194B44400D728EB /* PokemonService.swift in Sources */,
 				CB9E285D2194C06E00D728EB /* PokemonDetailViewController.swift in Sources */,
+				CB64E2DF21957F5100682C78 /* PokemonCellView.swift in Sources */,
 				CB9E28212194A81800D728EB /* AppDelegate.swift in Sources */,
 				CB9E283E2194B43700D728EB /* Type.swift in Sources */,
 				CB9E285F2194C28D00D728EB /* TypesColor.swift in Sources */,

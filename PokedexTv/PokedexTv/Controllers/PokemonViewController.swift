@@ -65,6 +65,7 @@ extension PokemonViewController: UICollectionViewDelegate, UICollectionViewDataS
         cell.pokemonType1.layer.cornerRadius = cell.pokemonType1.frame.size.height / 2
         cell.pokemonType1.clipsToBounds = true
         cell.pokemonType1.textColor = UIColor.white
+        cell.layer.cornerRadius = 10
         
         if let type2 = pokemons[indexPath.row].type2 {
             cell.pokemonType2.backgroundColor = getColorFromType(type: type2.id)
@@ -85,4 +86,29 @@ extension PokemonViewController: UICollectionViewDelegate, UICollectionViewDataS
         collectionView.deselectItem(at: indexPath, animated: true)
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool {
+        return true
+    }
+    
+    func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        if (context.nextFocusedView != nil) {
+            coordinator.addCoordinatedAnimations({() -> Void in
+                context.nextFocusedView!.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+            }, completion: nil)
+        }
+        if (context.previouslyFocusedView != nil) {
+            coordinator.addCoordinatedAnimations({() -> Void in
+                context.previouslyFocusedView!.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            }, completion: nil)
+        }
+    }
 }

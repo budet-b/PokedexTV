@@ -47,15 +47,11 @@ class PokemonDetailViewController: UIViewController {
             pokemonType2.textColor = UIColor.white
         } else {
             pokemonType2.text = ""
-            pokemonType2.backgroundColor = UIColor.white
         }
         if let pre_evol = pokemon?.preEvolutionId {
             pokemonPreEvolutionImage.sd_setImage(with: URL(string: "http://pokedex-mti.twitchytv.live/images/\(pre_evol).png"), placeholderImage: UIImage(named: "pokeball"))
         } else {
-            //evolutionView.isHidden = true
-            //pokemonPreEvolutionText.text = ""
             pokemonPreEvolutionImage.image = nil
-            //preEvolutionConstraint.constant = 0
             self.view.layoutIfNeeded()
         }
         // Do any additional setup after loading the view.
