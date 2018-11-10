@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tSi-Tn-WIy">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7FX-bV-SpA">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
@@ -113,13 +113,44 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dLO-gr-leM"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="zIb-6a-vpz"/>
                     <connections>
                         <outlet property="pokedexCollectionView" destination="Kd2-6I-MSJ" id="R7P-e3-hz6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8x-W3-t92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85" y="-238"/>
+            <point key="canvasLocation" x="2217" y="-238"/>
+        </scene>
+        <!--Connect View Controller-->
+        <scene sceneID="2I1-j0-Doq">
+            <objects>
+                <viewController id="h5d-RU-KRu" customClass="ConnectViewController" customModule="PokedexTv" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hqz-vV-mHr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Que-U7-fxR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UAl-61-MSg">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQj-pb-AVk">
+                                <rect key="frame" x="848" y="497" width="226" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="ConnectButtonPressed:" destination="h5d-RU-KRu" eventType="primaryActionTriggered" id="yKV-f5-qYg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tOR-fU-9xO"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="1dM-Oj-zQn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOJ-nY-Sfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2193" y="1324"/>
         </scene>
         <!--Pokemon Detail View Controller-->
         <scene sceneID="TCA-zh-DQ5">
@@ -314,7 +345,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocv-ke-frr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2212" y="-238"/>
+            <point key="canvasLocation" x="4344" y="-238"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hv5-KC-zAs">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7FX-bV-SpA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j9Q-Tf-nQb">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tSi-Tn-WIy" kind="relationship" relationship="viewControllers" id="MBg-PR-S3q"/>
+                        <segue destination="h5d-RU-KRu" kind="relationship" relationship="viewControllers" id="n1Y-9E-Hgd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d8V-mb-3FZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85" y="-238"/>
         </scene>
     </scenes>
 </document>

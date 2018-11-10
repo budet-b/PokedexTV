@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB11709621962D40000AF1C8 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB11709521962D40000AF1C8 /* ConnectViewController.swift */; };
 		CB64E2DF21957F5100682C78 /* PokemonCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64E2DE21957F5100682C78 /* PokemonCellView.swift */; };
+		CB64E2E621962B1100682C78 /* MultipeerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64E2E521962B1100682C78 /* MultipeerService.swift */; };
 		CB9E28212194A81800D728EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E28202194A81800D728EB /* AppDelegate.swift */; };
 		CB9E28232194A81800D728EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E28222194A81800D728EB /* ViewController.swift */; };
 		CB9E28262194A81800D728EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9E28242194A81800D728EB /* Main.storyboard */; };
@@ -47,7 +49,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CB11709521962D40000AF1C8 /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		CB64E2DE21957F5100682C78 /* PokemonCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCellView.swift; sourceTree = "<group>"; };
+		CB64E2E521962B1100682C78 /* MultipeerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipeerService.swift; sourceTree = "<group>"; };
 		CB9E281D2194A81800D728EB /* PokedexTv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexTv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9E28202194A81800D728EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB9E28222194A81800D728EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB64E2E421962B0200682C78 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CB64E2E521962B1100682C78 /* MultipeerService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		CB9E28142194A81800D728EB = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +115,7 @@
 		CB9E281F2194A81800D728EB /* PokedexTv */ = {
 			isa = PBXGroup;
 			children = (
+				CB64E2E421962B0200682C78 /* Services */,
 				CB9E283B2194B43700D728EB /* Pokemon.swift */,
 				CB9E283C2194B43700D728EB /* Type.swift */,
 				CB9E283F2194B44400D728EB /* PokemonService.swift */,
@@ -132,6 +145,7 @@
 			children = (
 				CB9E28392194B3C600D728EB /* PokemonViewController.swift */,
 				CB9E285C2194C06E00D728EB /* PokemonDetailViewController.swift */,
+				CB11709521962D40000AF1C8 /* ConnectViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -218,7 +232,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB9E283D2194B43700D728EB /* Pokemon.swift in Sources */,
+				CB64E2E621962B1100682C78 /* MultipeerService.swift in Sources */,
 				CB9E28232194A81800D728EB /* ViewController.swift in Sources */,
+				CB11709621962D40000AF1C8 /* ConnectViewController.swift in Sources */,
 				CB9E28312194AB0400D728EB /* PokemonCollectionViewCell.swift in Sources */,
 				CB9E283A2194B3C600D728EB /* PokemonViewController.swift in Sources */,
 				CB9E28402194B44400D728EB /* PokemonService.swift in Sources */,
