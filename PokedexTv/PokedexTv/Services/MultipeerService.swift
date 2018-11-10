@@ -16,7 +16,7 @@ public class MultipeerService: NSObject, MCNearbyServiceBrowserDelegate, MCNearb
     
     private let localPeerId: MCPeerID
     private var localSession: MCSession?
-    private var foundPeerArray: [MCPeerID] = []
+    public var foundPeerArray: [MCPeerID] = []
     
     private var localBrowser: MCNearbyServiceBrowser?
     private var localAdvertiser: MCNearbyServiceAdvertiser?
@@ -101,9 +101,11 @@ public class MultipeerService: NSObject, MCNearbyServiceBrowserDelegate, MCNearb
     public func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         
         if let message = try? JSONDecoder().decode(MultipeerMessage.self, from: data) {
+            print(message)
             switch message.type {
             case .sendCode:
                 if let str: String = message.content {
+                    print(str)
                     delegate?.receive(code: str)
                 }
             default:
@@ -157,6 +159,7 @@ public class MultipeerService: NSObject, MCNearbyServiceBrowserDelegate, MCNearb
     public func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String: String]?) {
         foundPeerArray.append(peerID)
         delegate?.found(peer: peerID.displayName)
+        delegate?.updatePeers()
     }
     
     public func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
@@ -173,6 +176,7 @@ public protocol MultipeerServiceDelegate: class {
     func lost(foundPeer name: String)
     func peerDidConnect(with name: String)
     func lostConnectedPeer(with name: String)
+    func updatePeers()
 }
 
 public extension MultipeerServiceDelegate {
@@ -181,7 +185,6 @@ public extension MultipeerServiceDelegate {
     func lost(foundPeer name: String) { }
     func peerDidConnect(with name: String) { }
 }
-
 
 public enum MultipeerMessageType: Int, Codable {
     case sendCode
