@@ -104,8 +104,7 @@ public class MultipeerService: NSObject, MCNearbyServiceBrowserDelegate, MCNearb
             print(message)
             switch message.type {
             case .sendCode:
-                if let str: String = message.content {
-                    print(str)
+                if let str: PokemonArena = message.content {
                     delegate?.receive(code: str)
                 }
             default:
@@ -171,7 +170,7 @@ public class MultipeerService: NSObject, MCNearbyServiceBrowserDelegate, MCNearb
 }
 
 public protocol MultipeerServiceDelegate: class {
-    func receive(code: String)
+    func receive(code: PokemonArena)
     func found(peer name: String)
     func lost(foundPeer name: String)
     func peerDidConnect(with name: String)
@@ -180,7 +179,7 @@ public protocol MultipeerServiceDelegate: class {
 }
 
 public extension MultipeerServiceDelegate {
-    func receive(code: String) { }
+    func receive(code: PokemonArena) { }
     func found(peer name: String) { }
     func lost(foundPeer name: String) { }
     func peerDidConnect(with name: String) { }
@@ -201,7 +200,7 @@ open class MultipeerMessage: Codable {
     // MARK: - Properties
     
     public let type: MultipeerMessageType
-    public let content: String?
+    public let content: PokemonArena?
     
     // *********************************************************************
     // MARK: - Parsing
@@ -212,7 +211,7 @@ open class MultipeerMessage: Codable {
     // *********************************************************************
     // MARK: - Methods
     
-    public init(type: MultipeerMessageType, content: String? = nil) {
+    public init(type: MultipeerMessageType, content: PokemonArena? = nil) {
         self.type = type
         self.content = content
     }

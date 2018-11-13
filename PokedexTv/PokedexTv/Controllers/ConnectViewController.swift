@@ -10,15 +10,28 @@ import UIKit
 
 class ConnectViewController: UIViewController {
     
+    var pokemonRes: PokemonArena?
+    
     @IBOutlet weak var detectedDeviceTableView: UITableView!
     @IBOutlet weak var statusConnection: UILabel!
-    
     @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var nicknameLabel: UILabel!
+    @IBOutlet weak var type1Label: UILabel!
+    @IBOutlet weak var type2Label: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var shinyLabel: UILabel!
+    @IBOutlet weak var attacksTableView: UITableView!
+    @IBOutlet weak var pokemonImage: UIImageView!
+    @IBOutlet weak var nickameTextLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         MultipeerService.shared.delegate = self
         detectedDeviceTableView.delegate = self
         detectedDeviceTableView.dataSource = self
+        attacksTableView.delegate = self
+        attacksTableView.dataSource = self
+        attacksTableView.isHidden = true
         statusConnection.text = "Not Connected"
         // Do any additional setup after loading the view.
     }
@@ -27,6 +40,34 @@ class ConnectViewController: UIViewController {
     @IBAction func ConnectButtonPressed(_ sender: Any) {
         MultipeerService.shared.start(false)
         statusConnection.text = "Scanning..."
+    }
+    
+    func UpdateUi() {
+        resultLabel.text = "\(pokemonRes?.species.name ?? "no name")"
+        pokemonImage.sd_setImage(with: URL(string: "http://pokedex-mti.twitchytv.live/images/\(pokemonRes?.species.id ?? 1).png"), placeholderImage: UIImage(named: "pokeball"))
+        if let nick = pokemonRes?.nickname {
+            nicknameLabel.text = nick
+        } else {
+            nicknameLabel.text = nil
+            nickameTextLabel.text = nil
+        }
+        shinyLabel.text = "\(pokemonRes?.shiny ?? false)"
+        type1Label.backgroundColor = getColorFromType(type: pokemonRes?.species.type1.id ?? 1)
+        type1Label.text = pokemonRes?.species.type1.name
+        type1Label.layer.cornerRadius = type1Label.frame.size.height / 2
+        type1Label.clipsToBounds = true
+        type1Label.textColor = UIColor.white
+        levelLabel.text = "\(pokemonRes?.level ?? 1)"
+        if let type2 = pokemonRes?.species.type2 {
+            type2Label.backgroundColor = getColorFromType(type: type2.id)
+            type2Label.text = type2.name
+            type2Label.layer.cornerRadius = type2Label.frame.size.height / 2
+            type2Label.clipsToBounds = true
+            type2Label.textColor = UIColor.white
+        } else {
+            type2Label.text = ""
+            type2Label.backgroundColor = UIColor.clear
+        }
     }
     
 
@@ -65,21 +106,23 @@ extension ConnectViewController: MultipeerServiceDelegate {
     
     func lostConnectedPeer(with name: String) {
         print("lost \(name)")
-        //MultipeerService.shared.tryToConnect(to: name)
     }
     
     func found(peer name: String) {
         print("Found: \(name)")
     }
     
-    func receive(code: String) {
+    func receive(code: PokemonArena) {
         print("Receive: \(code)")
-        self.resultLabel.text = code
+        DispatchQueue.main.async {
+            self.pokemonRes = code
+            self.UpdateUi()
+        }
     }
     
     func peerDidConnect(with name: String) {
         print("\(name)")
-        DispatchQueue.main.async { // Correct
+        DispatchQueue.main.async {
             self.statusConnection.text = "Connected to \(name)"
         }
         let al = UIAlertController.init(title: "Connect", message: "Connected to \(name)", preferredStyle: .alert)
