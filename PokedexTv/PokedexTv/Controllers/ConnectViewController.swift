@@ -22,7 +22,16 @@ class ConnectViewController: UIViewController {
     @IBOutlet weak var shinyLabel: UILabel!
     @IBOutlet weak var attacksTableView: UITableView!
     @IBOutlet weak var pokemonImage: UIImageView!
+    
+    // Holders
     @IBOutlet weak var nickameTextLabel: UILabel!
+    @IBOutlet weak var levelTextLabel: UILabel!
+    @IBOutlet weak var shinyTextLabel: UILabel!
+    @IBOutlet weak var attacksTextLabel: UILabel!
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +40,19 @@ class ConnectViewController: UIViewController {
         detectedDeviceTableView.dataSource = self
         attacksTableView.delegate = self
         attacksTableView.dataSource = self
+
         attacksTableView.isHidden = true
+        nickameTextLabel.isHidden = true
+        levelTextLabel.isHidden = true
+        attacksTextLabel.isHidden = true
+        nicknameLabel.isHidden = true
+        type1Label.isHidden = true
+        type2Label.isHidden = true
+        levelLabel.isHidden = true
+        shinyLabel.isHidden = true
+        shinyTextLabel.isHidden = true
+        resultLabel.isHidden = true
+        
         statusConnection.text = "Not Connected"
         // Do any additional setup after loading the view.
     }
@@ -43,6 +64,17 @@ class ConnectViewController: UIViewController {
     }
     
     func UpdateUi() {
+        attacksTableView.isHidden = false
+        nickameTextLabel.isHidden = false
+        levelTextLabel.isHidden = false
+        attacksTextLabel.isHidden = false
+        nicknameLabel.isHidden = false
+        type1Label.isHidden = false
+        type2Label.isHidden = false
+        levelLabel.isHidden = false
+        shinyLabel.isHidden = false
+        shinyTextLabel.isHidden = false
+        resultLabel.isHidden = false
         resultLabel.text = "\(pokemonRes?.species.name ?? "no name")"
         pokemonImage.sd_setImage(with: URL(string: "http://pokedex-mti.twitchytv.live/images/\(pokemonRes?.species.id ?? 1).png"), placeholderImage: UIImage(named: "pokeball"))
         if let nick = pokemonRes?.nickname {

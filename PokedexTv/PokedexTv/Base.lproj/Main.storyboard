@@ -325,13 +325,16 @@
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="1dM-Oj-zQn"/>
                     <connections>
                         <outlet property="attacksTableView" destination="pto-m4-ODd" id="9fj-TE-oJC"/>
+                        <outlet property="attacksTextLabel" destination="0Xg-Ym-OGx" id="cZv-bM-Ajg"/>
                         <outlet property="detectedDeviceTableView" destination="4cL-uo-kb6" id="51k-dh-eOQ"/>
                         <outlet property="levelLabel" destination="gdU-OB-d4y" id="U8z-zp-JPm"/>
+                        <outlet property="levelTextLabel" destination="NTo-fx-I8F" id="LgI-oF-dTd"/>
                         <outlet property="nickameTextLabel" destination="1wH-hu-5lS" id="Eez-ux-C3C"/>
                         <outlet property="nicknameLabel" destination="eVQ-Ky-vLB" id="zse-Jx-jpG"/>
                         <outlet property="pokemonImage" destination="Qum-bg-uwI" id="SD9-O3-27r"/>
                         <outlet property="resultLabel" destination="ez7-hz-Ful" id="8re-F9-oqI"/>
                         <outlet property="shinyLabel" destination="Oe1-09-Wp3" id="Lkq-wZ-BGk"/>
+                        <outlet property="shinyTextLabel" destination="WfL-mB-N1Q" id="NcP-lU-4A8"/>
                         <outlet property="statusConnection" destination="oC4-SL-D3V" id="bx3-86-3Ga"/>
                         <outlet property="type1Label" destination="6eh-be-geu" id="cd1-PE-knS"/>
                         <outlet property="type2Label" destination="BTU-AM-MQF" id="5aP-yr-dB0"/>
