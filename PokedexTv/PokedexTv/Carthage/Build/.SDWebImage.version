@@ -1,9 +1,0 @@
-{
-  "commitish" : "4.4.2",
-  "tvOS" : [
-    {
-      "name" : "SDWebImage",
-      "hash" : "fad23d1eabf0605a5b9fa428fb974f763f1d42dfa4d8780dac1fb26005e0f802"
-    }
-  ]
-}

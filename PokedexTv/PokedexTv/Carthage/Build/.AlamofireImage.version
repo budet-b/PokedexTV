@@ -1,9 +1,0 @@
-{
-  "commitish" : "3.4.1",
-  "tvOS" : [
-    {
-      "name" : "AlamofireImage",
-      "hash" : "97d50afaeeb2a207e163182233224833a8a24765728c154d7b4f1ed16190a1f3"
-    }
-  ]
-}
