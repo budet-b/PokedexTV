@@ -11,6 +11,7 @@ import UIKit
 class ConnectViewController: UIViewController {
     
     var pokemonRes: PokemonArena?
+    var pokemonAttacks: [Attack] = []
     
     @IBOutlet weak var detectedDeviceTableView: UITableView!
     @IBOutlet weak var statusConnection: UILabel!
@@ -29,10 +30,6 @@ class ConnectViewController: UIViewController {
     @IBOutlet weak var shinyTextLabel: UILabel!
     @IBOutlet weak var attacksTextLabel: UILabel!
     
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         MultipeerService.shared.delegate = self
@@ -40,7 +37,7 @@ class ConnectViewController: UIViewController {
         detectedDeviceTableView.dataSource = self
         attacksTableView.delegate = self
         attacksTableView.dataSource = self
-
+        
         attacksTableView.isHidden = true
         nickameTextLabel.isHidden = true
         levelTextLabel.isHidden = true
@@ -63,7 +60,8 @@ class ConnectViewController: UIViewController {
         statusConnection.text = "Scanning..."
     }
     
-    func UpdateUi() {
+    func UpdateUI() {
+        pokemonAttacks = []
         attacksTableView.isHidden = false
         nickameTextLabel.isHidden = false
         levelTextLabel.isHidden = false
@@ -100,6 +98,19 @@ class ConnectViewController: UIViewController {
             type2Label.text = ""
             type2Label.backgroundColor = UIColor.clear
         }
+        if let att1 = pokemonRes?.attack1 {
+            pokemonAttacks.append(att1)
+        }
+        if let att2 = pokemonRes?.attack2 {
+            pokemonAttacks.append(att2)
+        }
+        if let att3 = pokemonRes?.attack3 {
+            pokemonAttacks.append(att3)
+        }
+        if let att4 = pokemonRes?.attack4 {
+            pokemonAttacks.append(att4)
+        }
+        attacksTableView.reloadData()
     }
     
 
@@ -117,17 +128,31 @@ class ConnectViewController: UIViewController {
 
 extension ConnectViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MultipeerService.shared.foundPeerArray.count
+        if (tableView == self.detectedDeviceTableView) {
+            return MultipeerService.shared.foundPeerArray.count
+        } else if(tableView == self.attacksTableView) {
+            return self.pokemonAttacks.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell") as! UITableViewCell
-        cell.textLabel?.text = "\(MultipeerService.shared.foundPeerArray[indexPath.row].displayName)"
-        return cell
+        if (tableView == self.detectedDeviceTableView) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell") as! UITableViewCell
+            cell.textLabel?.text = "\(MultipeerService.shared.foundPeerArray[indexPath.row].displayName)"
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "attackCell") as! UITableViewCell
+            cell.textLabel?.text = "\(self.pokemonAttacks[indexPath.row].name)"
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        MultipeerService.shared.tryToConnect(to: "\(MultipeerService.shared.foundPeerArray[indexPath.row].displayName)")
+        if (tableView == self.detectedDeviceTableView) {
+            MultipeerService.shared.tryToConnect(to: "\(MultipeerService.shared.foundPeerArray[indexPath.row].displayName)")
+        }
     }
 }
 
@@ -148,7 +173,7 @@ extension ConnectViewController: MultipeerServiceDelegate {
         print("Receive: \(code)")
         DispatchQueue.main.async {
             self.pokemonRes = code
-            self.UpdateUi()
+            self.UpdateUI()
         }
     }
     

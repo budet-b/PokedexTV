@@ -97,8 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				CB9E283B2194B43700D728EB /* Pokemon.swift */,
-				CB9E283C2194B43700D728EB /* Type.swift */,
 				CB517EB3219B2607007CFE8D /* Attack.swift */,
+				CB9E283C2194B43700D728EB /* Type.swift */,
 				CB517EB5219B2608007CFE8D /* PokemonArena.swift */,
 				CB517EB4219B2608007CFE8D /* PokemonSpecies.swift */,
 			);
