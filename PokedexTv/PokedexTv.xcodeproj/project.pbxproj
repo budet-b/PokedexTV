@@ -73,7 +73,7 @@
 		CB9E28492194B8B800D728EB /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = PokedexTv/Carthage/Build/tvOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		CB9E284A2194B8B800D728EB /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = PokedexTv/Carthage/Build/tvOS/SDWebImage.framework; sourceTree = "<group>"; };
 		CB9E285C2194C06E00D728EB /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
-		CB9E285E2194C28D00D728EB /* TypesColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypesColor.swift; path = "../../../TP1/Pokédex/Pokédex/Utils/TypesColor.swift"; sourceTree = "<group>"; };
+		CB9E285E2194C28D00D728EB /* TypesColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypesColor.swift; path = Utils/TypesColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
